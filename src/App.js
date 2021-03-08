@@ -57,18 +57,23 @@ state={
           padding:'8px',
           cursor:'pointer'
         };
+    let persons=null;
+    if(this.state.showPersons){
+        persons=(
+            <div>
+                <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+                <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this,"Pooja A Shetty!")} changes={this.nameChangesHandler}>Hobbies: Singing</Person>
+                <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+            </div>
+
+        );
+    }
     return (
       <div className="App">
        <h1>Hello Iam React App</h1>
           <button
               style={style} onClick={this.togglePersonHandler}>Switch Name</button>
-          {this.state.showPersons ===true ?
-              <div>
-              <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-              <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this,"Pooja A Shetty!")} changes={this.nameChangesHandler}>Hobbies: Singing</Person>
-              <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-          </div> : null
-          }
+          {persons}
 
           {/*<UserInput change={this.nameChangedHandler} name={this.state.username}/>
           <UserOutput userName={this.state.username}/>
