@@ -14,7 +14,9 @@ state={
             {name:"Pooja",age:21},
             {name:"Pallavi",age:20},
             {name:"Rajani",age:21}
-            ]
+            ],
+    otherState:'Some Other value',
+    showPersons:false
     }
     switchNameHandler=(newName)=>{
         this.setState({
@@ -43,6 +45,10 @@ state={
 
         )
     }*/
+    togglePersonHandler=()=>{
+    const doesShow=this.state.showPersons;
+    this.setState({showPersons:!doesShow})
+    }
   render() {
     const style={
           backgroundColor:'white',
@@ -55,10 +61,15 @@ state={
       <div className="App">
        <h1>Hello Iam React App</h1>
           <button
-              style={style} onClick={this.switchNameHandler.bind(this,"Pooja A Shetty")}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this,"Pooja A Shetty!")} changes={this.nameChangesHandler}>Hobbies: Singing</Person>
-          <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+              style={style} onClick={this.togglePersonHandler}>Switch Name</button>
+          {this.state.showPersons ===true ?
+              <div>
+              <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+              <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this,"Pooja A Shetty!")} changes={this.nameChangesHandler}>Hobbies: Singing</Person>
+              <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+          </div> : null
+          }
+
           {/*<UserInput change={this.nameChangedHandler} name={this.state.username}/>
           <UserOutput userName={this.state.username}/>
           <UserOutput userName={this.state.username}/>
