@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
 import Person from './Persons/Person';
 //import styled from "styled-components"
 //import Radium, {StyleRoot} from "radium";
@@ -83,6 +83,7 @@ state={
 
           }
         }; //Radium styling*/
+      let btnClass=""
     let persons=null;
     if(this.state.showPersons){
         persons=(
@@ -98,22 +99,22 @@ state={
             backgroundColor: 'salmon',
             color:'black'
         }*/
+        btnClass=classes.Red
     }
 
-    const classes=[];
+    const assignedclasses=[];
     if(this.state.persons.length<=2){
-        classes.push('red');
+        assignedclasses.push('red');
     }
     if(this.state.persons.length<=1){
-        classes.push('bold')
+        assignedclasses.push('bold')
     }
     return (
-       /* <StyleRoot>*/
-      <div className="App">
+      <div className={classes.App}>
        <h1>Hello Iam React App</h1>
-          <p className={classes.join(' ')}>This really works</p>
+          <p className={assignedclasses.join(' ')}>This really works</p>
           {/*<StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>Toggle Persons</StyledButton>*/}
-          <button onClick={this.togglePersonHandler}>Toggle Persons</button>
+          <button className={btnClass} onClick={this.togglePersonHandler}>Toggle Persons</button>
           {persons}
 
           {/*<UserInput change={this.nameChangedHandler} name={this.state.username}/>
@@ -121,7 +122,6 @@ state={
           <UserOutput userName={this.state.username}/>
           <UserOutput userName="Steve"/>*/}
       </div>
-       /* </StyleRoot>*/
     );
   }
 }
