@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Persons/Person';
-import Radium from "radium";
+import Radium, {StyleRoot} from "radium";
 //import UserInput from "./UserInput";
 //import UserOutput from "./UserOutput";
 
@@ -93,6 +93,7 @@ state={
         classes.push('bold')
     }
     return (
+        <StyleRoot>
       <div className="App">
        <h1>Hello Iam React App</h1>
           <p className={classes.join(' ')}>This really works</p>
@@ -105,6 +106,7 @@ state={
           <UserOutput userName={this.state.username}/>
           <UserOutput userName="Steve"/>*/}
       </div>
+        </StyleRoot>
     );
   }
 }
