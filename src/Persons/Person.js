@@ -21,7 +21,12 @@ const Person=(props)=>{
 
     }
     }*/
+    const rnd =Math.random();
+    if (rnd>0.7){
+        throw new Error('Something went wrong')
+    }
     return(
+
         <div className="Person" /*style={style}*/>
         {/*<StyledDiv>*/}
             <h1 onClick={props.click}>Hello Iam {props.name} and I am {props.age} years old</h1>

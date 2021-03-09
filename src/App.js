@@ -6,6 +6,7 @@ import Person from './Persons/Person';
 //import Radium, {StyleRoot} from "radium";
 //import UserInput from "./UserInput";
 //import UserOutput from "./UserOutput";
+//import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 /*
 const StyledButton=styled.button`
@@ -89,9 +90,23 @@ state={
         persons=(
             <div>
                 {this.state.persons.map((person,index)=>{
-                    return < Person click={()=>this.deletePersonHandler(index)} name={person.name} age={person.age} key={person.id} changes={(event)=>this.nameChangesHandler(event,person.id)}/>
+                    return <Person
+                        click={()=>this.deletePersonHandler(index)}
+                        name={person.name}
+                        age={person.age}
+                        key={person.id}
+                        changes={(event)=>this.nameChangesHandler(event,person.id)}/>
                 })}
             </div>
+            /*<div>
+                {this.state.persons.map((person,index)=>{
+                    return <ErrorBoundary  key={person.id}><Person
+                        click={()=>this.deletePersonHandler(index)}
+                        name={person.name}
+                        age={person.age}
+                        changes={(event)=>this.nameChangesHandler(event,person.id)}/></ErrorBoundary>
+                })}
+            </div>*/
 
         );
         /*style.backgroundColor='red';
