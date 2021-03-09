@@ -11,7 +11,7 @@ class App extends Component {
     }*/
 state={
         persons:[
-            { id:123,name:"Pooja",age:21},
+            {id:123,name:"Pooja",age:21},
             {id:234,name:"Pallavi",age:20},
             {id:256,name:"Rajani",age:21}
             ],
@@ -56,7 +56,8 @@ state={
     }
   render() {
     const style={
-          backgroundColor:'white',
+          backgroundColor:'green',
+          color:'white',
           font:'inherit',
           border:'1 px solid blue',
           padding:'8px',
@@ -72,6 +73,7 @@ state={
             </div>
 
         );
+        style.backgroundColor='red';
     }
     return (
       <div className="App">
