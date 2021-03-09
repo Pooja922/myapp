@@ -2,9 +2,21 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Persons/Person';
-import Radium, {StyleRoot} from "radium";
+import styled from "styled-components"
+//import Radium, {StyleRoot} from "radium";
 //import UserInput from "./UserInput";
 //import UserOutput from "./UserOutput";
+
+const StyledButton=styled.button`
+          background-color: ${props => props.alt? 'red':'green'};
+          color:white;
+          font:inherit;
+          border:1px solid blue;
+          padding:8px;
+          cursor:pointer;
+          &:hover{
+              background-color:lightgreen;
+              color:black;}`
 
 class App extends Component {
     /*state={
@@ -56,18 +68,19 @@ state={
     this.setState({showPersons:!doesShow})
     }
   render() {
-    const style={
-          backgroundColor:'green',
+    /*const style={
+    backgroundColor:'green',
           color:'white',
           font:'inherit',
-          border:'1 px solid blue',
+          border:'1px solid blue',
           padding:'8px',
           cursor:'pointer',
           ':hover':{
               backgroundColor:'lightgreen',
-              color:'black'
+              color:'black'}
+
           }
-        };
+        }; //Radium styling*/
     let persons=null;
     if(this.state.showPersons){
         persons=(
@@ -78,11 +91,11 @@ state={
             </div>
 
         );
-        style.backgroundColor='red';
+        /*style.backgroundColor='red';
         style[':hover']={
             backgroundColor: 'salmon',
             color:'black'
-        }
+        }*/
     }
 
     const classes=[];
@@ -93,12 +106,11 @@ state={
         classes.push('bold')
     }
     return (
-        <StyleRoot>
+       /* <StyleRoot>*/
       <div className="App">
        <h1>Hello Iam React App</h1>
           <p className={classes.join(' ')}>This really works</p>
-          <button
-              style={style} onClick={this.togglePersonHandler}>Toggle Persons</button>
+          <StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>Toggle Persons</StyledButton>
           {persons}
 
           {/*<UserInput change={this.nameChangedHandler} name={this.state.username}/>
@@ -106,9 +118,9 @@ state={
           <UserOutput userName={this.state.username}/>
           <UserOutput userName="Steve"/>*/}
       </div>
-        </StyleRoot>
+       /* </StyleRoot>*/
     );
   }
 }
-
-export default Radium(App);                 {/*higher order component*/}
+export default App;
+// export default Radium(App);                 {/*higher order component*/}
