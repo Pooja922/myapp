@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Persons/Person';
+import Radium from "radium";
 //import UserInput from "./UserInput";
 //import UserOutput from "./UserOutput";
 
@@ -61,7 +62,11 @@ state={
           font:'inherit',
           border:'1 px solid blue',
           padding:'8px',
-          cursor:'pointer'
+          cursor:'pointer',
+          ':hover':{
+              backgroundColor:'lightgreen',
+              color:'black'
+          }
         };
     let persons=null;
     if(this.state.showPersons){
@@ -74,6 +79,10 @@ state={
 
         );
         style.backgroundColor='red';
+        style[':hover']={
+            backgroundColor: 'salmon',
+            color:'black'
+        }
     }
 
     const classes=[];
@@ -100,4 +109,4 @@ state={
   }
 }
 
-export default App;
+export default Radium(App);                 {/*higher order component*/}
