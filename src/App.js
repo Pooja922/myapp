@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Persons/Person';
-import styled from "styled-components"
+//import styled from "styled-components"
 //import Radium, {StyleRoot} from "radium";
 //import UserInput from "./UserInput";
 //import UserOutput from "./UserOutput";
 
+/*
 const StyledButton=styled.button`
           background-color: ${props => props.alt? 'red':'green'};
           color:white;
@@ -17,6 +18,7 @@ const StyledButton=styled.button`
           &:hover{
               background-color:lightgreen;
               color:black;}`
+*/
 
 class App extends Component {
     /*state={
@@ -110,7 +112,8 @@ state={
       <div className="App">
        <h1>Hello Iam React App</h1>
           <p className={classes.join(' ')}>This really works</p>
-          <StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>Toggle Persons</StyledButton>
+          {/*<StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>Toggle Persons</StyledButton>*/}
+          <button onClick={this.togglePersonHandler}>Toggle Persons</button>
           {persons}
 
           {/*<UserInput change={this.nameChangedHandler} name={this.state.username}/>
