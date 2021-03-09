@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import classes from './App.css';
-import Person from './Persons/Person';
+import Person from "../components/Persons/Person/Person";
 //import styled from "styled-components"
 //import Radium, {StyleRoot} from "radium";
 //import UserInput from "./UserInput";
@@ -128,7 +128,7 @@ state={
       <div className={classes.App}>
        <h1>Hello Iam React App</h1>
           <p className={assignedclasses.join(' ')}>This really works</p>
-          {/*<StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>Toggle Persons</StyledButton>*/}
+          {/*<StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>Toggle Person</StyledButton>*/}
           <button className={btnClass} onClick={this.togglePersonHandler}>Toggle Persons</button>
           {persons}
 
